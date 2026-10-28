@@ -1,0 +1,135 @@
+/* ==========================================================================
+   Paper Crumple, Ball Flight, and Unfolding Transitions
+   ========================================================================== */
+
+/* The Flying Crumpled Paper Ball Actor */
+#crumpled-ball-actor {
+  position: fixed;
+  width: 58px;
+  height: 58px;
+  z-index: 2000;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-9999px, -9999px);
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.45));
+  transition: none;
+}
+
+#crumpled-ball-actor.active {
+  opacity: 1;
+}
+
+/* Crumpled Paper Ball SVG visuals */
+.ball-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Motion Blur & Trail */
+.motion-dust {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1999;
+  border-radius: 50%;
+  background: rgba(254, 240, 138, 0.8);
+  box-shadow: 0 0 10px rgba(254, 240, 138, 0.6);
+  opacity: 1;
+  transform: scale(1);
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+/* ==========================================================================
+   Paper Sheet Crumpling Class (Forward Navigation)
+   ========================================================================== */
+
+.paper-sheet.is-crumpling {
+  transform-origin: 75% 75%;
+  animation: paperCrumpleCollapse 0.85s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+  pointer-events: none;
+}
+
+@keyframes paperCrumpleCollapse {
+  0% {
+    transform: scale(1) rotate(0deg);
+    border-radius: 8px;
+    filter: brightness(1) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.25));
+  }
+  25% {
+    transform: scale(0.85) rotate(-3deg) skew(3deg, 2deg);
+    border-radius: 20px;
+    filter: brightness(0.95) drop-shadow(0 10px 25px rgba(0, 0, 0, 0.35));
+  }
+  50% {
+    transform: scale(0.55) rotate(15deg) skew(-8deg, 5deg);
+    border-radius: 60px;
+    filter: brightness(0.85) drop-shadow(0 8px 20px rgba(0, 0, 0, 0.45));
+  }
+  80% {
+    transform: scale(0.2) translate(400px, 350px) rotate(120deg);
+    border-radius: 50%;
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.02) translate(650px, 550px) rotate(240deg);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   Paper Sheet Un-crumpling Class (Page Reveal & Return)
+   ========================================================================== */
+
+.paper-sheet.is-uncrumpling {
+  transform-origin: center center;
+  animation: paperUncrumpleExpand 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes paperUncrumpleExpand {
+  0% {
+    transform: scale(0.08) rotate(-45deg);
+    border-radius: 50%;
+    opacity: 0;
+    filter: brightness(0.7) drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+  }
+  40% {
+    transform: scale(0.6) rotate(10deg);
+    border-radius: 30px;
+    opacity: 0.9;
+    filter: brightness(0.9) drop-shadow(0 12px 25px rgba(0, 0, 0, 0.35));
+  }
+  75% {
+    transform: scale(1.03) rotate(-1.5deg);
+    border-radius: 12px;
+    opacity: 1;
+    filter: brightness(1.02);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    border-radius: 8px;
+    opacity: 1;
+    filter: brightness(1) drop-shadow(0 8px 24px -4px rgba(0, 0, 0, 0.25));
+  }
+}
+
+/* ==========================================================================
+   Regurgitate Cough Pop Animation for Chibi
+   ========================================================================== */
+
+@keyframes paperSpitPop {
+  0% {
+    transform: scale(0.1) translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) translate(-25px, -20px) rotate(-90deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translate(-40px, -35px) rotate(-180deg);
+    opacity: 1;
+  }
+}
+
+/* Windup Throw Arc Trajectory (Calculated dynamically via JS for precision) */
+

@@ -1,0 +1,748 @@
+/* ==========================================================================
+   Content & Component Styles for Home, About, Achievements, and Hobbies
+   ========================================================================== */
+
+/* Universal Reset & Typography Helpers */
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, p {
+  margin-top: 0;
+}
+
+a {
+  color: var(--ink-blue);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   1. Home Page Styles
+   ========================================================================== */
+
+.home-hero {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.hero-text {
+  position: relative;
+}
+
+.handwritten-greeting {
+  font-family: var(--font-hand);
+  font-size: 1.8rem;
+  color: var(--ink-blue);
+  margin-bottom: 0.2rem;
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
+.hero-name {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink-primary);
+  margin-bottom: 0.8rem;
+}
+
+.hero-title-badge {
+  display: inline-block;
+  background: #fef08a;
+  border: 1px dashed #ca8a04;
+  padding: 0.35rem 0.9rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #854d0e;
+  border-radius: 4px;
+  transform: rotate(1deg);
+  margin-bottom: 1.25rem;
+}
+
+.hero-bio {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--ink-secondary);
+  margin-bottom: 2rem;
+  max-width: 520px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.paper-btn-primary {
+  appearance: none;
+  border: 2px solid var(--ink-primary);
+  background: var(--ink-primary);
+  color: var(--paper-cream);
+  padding: 0.8rem 1.8rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 3px 4px 0px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.paper-btn-primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 6px 0px rgba(0, 0, 0, 0.3);
+  background: #000000;
+}
+
+.paper-btn-primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+}
+
+.paper-btn-secondary {
+  appearance: none;
+  border: 2px solid var(--ink-secondary);
+  background: transparent;
+  color: var(--ink-primary);
+  padding: 0.8rem 1.6rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 3px 4px 0px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.paper-btn-secondary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 6px 0px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* Polaroid Card on Home */
+.hero-polaroid-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.polaroid-card {
+  background: #ffffff;
+  padding: 1.1rem 1.1rem 2rem 1.1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transform: rotate(3deg);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  max-width: 290px;
+  width: 100%;
+}
+
+.polaroid-card:hover {
+  transform: rotate(0deg) scale(1.03);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+.polaroid-image-frame {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: #1e293b;
+  overflow: hidden;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.polaroid-svg-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.polaroid-caption {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  color: #334155;
+  text-align: center;
+  margin-top: 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* Quick Navigation Index Cards */
+.home-section-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.home-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.nav-index-card {
+  background: #fbf8ee;
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem 1.3rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.06);
+}
+
+.nav-index-card:hover {
+  background: #ffffff;
+  transform: translateY(-4px);
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.12);
+  border-style: solid;
+  border-color: var(--ink-blue);
+}
+
+.card-stamp-num {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.18);
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  margin-bottom: 0.4rem;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.card-link-prompt {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink-blue);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* Companion Chibi intro note on home */
+.companion-intro-note {
+  background: #fef9c3;
+  border-left: 4px solid #eab308;
+  padding: 1.2rem 1.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.companion-note-icon {
+  font-size: 2.2rem;
+}
+
+.companion-note-text {
+  font-size: 0.95rem;
+  color: #713f12;
+  line-height: 1.5;
+}
+
+.companion-note-text strong {
+  font-weight: 700;
+  color: #854d0e;
+}
+
+/* ==========================================================================
+   2. About Me Page Styles
+   ========================================================================== */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2.5rem;
+}
+
+.about-journal {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  padding: 2rem;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.journal-entry-date {
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  color: var(--ink-muted);
+  margin-bottom: 0.8rem;
+}
+
+.journal-p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--ink-primary);
+  margin-bottom: 1.25rem;
+}
+
+/* Skills Sticky Notes */
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skills-note {
+  background: #fef08a;
+  padding: 1.4rem;
+  border-radius: 2px 2px 12px 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
+  position: relative;
+  transform: rotate(-1deg);
+}
+
+.skills-note.blue-note {
+  background: #e0f2fe;
+  transform: rotate(1.5deg);
+}
+
+.skills-note-title {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.skill-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Principles Paper Cards */
+.principles-row {
+  grid-column: 1 / -1;
+  margin-top: 2.5rem;
+}
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.principle-card {
+  background: #ffffff;
+  border: 1px dashed rgba(0, 0, 0, 0.18);
+  padding: 1.25rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.principle-check {
+  font-family: var(--font-hand);
+  font-size: 1.8rem;
+  color: #16a34a;
+  margin-bottom: 0.2rem;
+}
+
+.principle-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.principle-desc {
+  font-size: 0.85rem;
+  color: var(--ink-secondary);
+  line-height: 1.45;
+}
+
+/* Kraft Paper Contact Envelope */
+.contact-envelope {
+  background: var(--paper-kraft);
+  border: 2px solid #b89d74;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 2.5rem;
+  grid-column: 1 / -1;
+  position: relative;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.envelope-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3e2e1c;
+  margin-bottom: 0.3rem;
+}
+
+.envelope-desc {
+  font-size: 0.95rem;
+  color: #57432e;
+}
+
+.contact-links {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.contact-pill-btn {
+  background: #ffffff;
+  border: 1px solid #a88d67;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #2b1f13;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.contact-pill-btn:hover {
+  background: #2b1f13;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   3. My Achievements Page Styles
+   ========================================================================== */
+
+.achievements-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.stat-paper-block {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1.25rem;
+  border-radius: 6px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+}
+
+.stat-number {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--ink-blue);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.stat-label {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Timeline on Lined Notebook Paper */
+.achievements-timeline {
+  position: relative;
+  padding-left: 2.5rem;
+  border-left: 3px solid #e2d9c8;
+  margin-left: 1rem;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2.95rem;
+  top: 0.2rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #d97706;
+  border: 3px solid var(--paper-cream);
+  box-shadow: 0 0 0 2px #d97706;
+}
+
+.timeline-year-tag {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  color: #d97706;
+  margin-bottom: 0.3rem;
+}
+
+.achievement-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  padding: 1.6rem 1.8rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+.achievement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.6rem;
+}
+
+.achievement-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  margin-bottom: 0.2rem;
+}
+
+.achievement-org {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink-blue);
+}
+
+.wax-seal {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ef4444 0%, #b91c1c 70%, #7f1d1d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fef2f2;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+}
+
+.achievement-desc {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--ink-secondary);
+}
+
+/* ==========================================================================
+   4. My Hobbies Page Styles (Scrapbook & Polaroids)
+   ========================================================================== */
+
+.hobbies-intro-note {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  color: var(--ink-muted);
+  margin-bottom: 2rem;
+  transform: rotate(-1deg);
+}
+
+.scrapbook-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.2rem;
+  margin-bottom: 3rem;
+}
+
+.hobby-scrap-item {
+  background: #ffffff;
+  padding: 1.1rem 1.1rem 1.8rem 1.1rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+  border-radius: 3px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.hobby-scrap-item:hover {
+  transform: translateY(-8px) scale(1.03) !important;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22);
+  z-index: 10;
+}
+
+.push-pin {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ef4444, #991b1b);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.35);
+  z-index: 15;
+}
+
+.push-pin::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+}
+
+.hobby-art-box {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.hobby-caption-title {
+  font-family: var(--font-hand);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  margin-bottom: 0.3rem;
+}
+
+.hobby-caption-desc {
+  font-size: 0.88rem;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+}
+
+.hobby-tag-pill {
+  display: inline-block;
+  margin-top: 0.8rem;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-bio {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .home-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .achievements-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .scrapbook-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .principles-grid {
+    grid-template-columns: 1fr;
+  }
+  .achievements-stats-bar {
+    grid-template-columns: 1fr;
+  }
+  .scrapbook-grid {
+    grid-template-columns: 1fr;
+  }
+  .chibi-widget {
+    right: 12px;
+    bottom: 8px;
+    transform: scale(0.85);
+    transform-origin: bottom right;
+  }
+  .chibi-widget:hover {
+    transform: scale(0.88);
+  }
+}
+
